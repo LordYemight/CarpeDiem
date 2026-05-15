@@ -29,9 +29,9 @@ export function ShopTablePagination({
   const pages = buildPageNumbers(currentPage, totalPages);
 
   return (
-    <div className="flex items-center justify-between p-4">
+    <div className="flex flex-col sm:flex-row items-center justify-between p-4 gap-4 sm:gap-0 border-t border-CarpeDiemBlueLight bg-white">
       {/* Left: Show X per page */}
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 order-2 sm:order-1">
         <span className="text-[13px] leading-[14px] font-semibold text-CarpeDiemGrey tracking-[-0.01em]">Show</span>
         <div className="relative">
           <select
@@ -50,17 +50,17 @@ export function ShopTablePagination({
             <DownIcon className="w-3 h-3 text-CarpeDiemSlate" />
           </div>
         </div>
-        <span className="text-[13px] leading-[14px] font-semibold text-CarpeDiemGrey tracking-[-0.01em]">per page</span>
+        <span className="text-[13px] leading-[14px] font-semibold text-CarpeDiemGrey tracking-[-0.01em] whitespace-nowrap">per page</span>
       </div>
 
       {/* Right: range + page buttons */}
-      <div className="flex items-center gap-1">
+      <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-1 order-1 sm:order-2 w-full sm:w-auto">
         {/* Record range */}
-        <span className="mr-4 text-[13px] leading-[14px] font-semibold text-CarpeDiemGrey tracking-[-0.01em]">
+        <span className="text-[13px] leading-[14px] font-semibold text-CarpeDiemGrey tracking-[-0.01em] sm:mr-4 whitespace-nowrap">
           {rangeStart}-{rangeEnd} of {totalRecords}
         </span>
 
-        <div className="flex items-center overflow-hidden">
+        <div className="flex items-center justify-center overflow-hidden">
           {/* Prev arrow */}
           <PaginationArrow
             direction="left"

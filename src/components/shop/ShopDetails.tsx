@@ -28,9 +28,9 @@ export function ShopDetails({ job }: ShopDetailsProps) {
     };
 
     return (
-        <div className="flex bg-white min-h-[750px] rounded-[12px] overflow-hidden">
-            {/* Left Sidebar - 286px fixed */}
-            <div className="w-[286px] bg-CarpeDiemOffWhite p-6 flex flex-col gap-8 border-r border-CarpeDiemBlueLight">
+        <div className="flex flex-col lg:flex-row bg-white min-h-[750px] rounded-[12px] overflow-hidden">
+            {/* Left Sidebar - 286px fixed on desktop */}
+            <div className="w-full lg:w-[286px] bg-CarpeDiemOffWhite p-6 flex flex-col gap-8 border-b lg:border-b-0 lg:border-r border-CarpeDiemBlueLight">
                 <div>
                     <h2 className="text-CarpeDiemBlackDeep font-inter font-semibold text-[20px] leading-[28px] mb-4">Job Details</h2>
                     <div className="flex flex-col gap-1">
@@ -56,7 +56,7 @@ export function ShopDetails({ job }: ShopDetailsProps) {
             </div>
 
             {/* Main Content Area */}
-            <div className="flex-1 p-8 flex flex-col">
+            <div className="flex-1 p-4 sm:p-8 flex flex-col">
                 {/* Header Info */}
                 <div className="mb-10">
                     <h1 className="text-black font-proxima font-semibold text-[16px] leading-[24px] mb-1">{job.fabId}</h1>
@@ -64,7 +64,7 @@ export function ShopDetails({ job }: ShopDetailsProps) {
                 </div>
 
                 {/* Info Grid */}
-                <div className="grid grid-cols-5 gap-y-8 mb-5 pb-5 border-b border-CarpeDiemBlueLight">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-8 mb-5 pb-5 border-b border-CarpeDiemBlueLight">
                     <DetailItem label="Job #" value={job.jobNo.toString()} />
                     <DetailItem label="FAB type" value={job.fabType} />
                     <DetailItem label="Account" value={details.account} />
@@ -84,14 +84,14 @@ export function ShopDetails({ job }: ShopDetailsProps) {
                 </div>
 
                 {/* Uploaded Files */}
-                <div className="flex-1 border border-CarpeDiemBorder rounded-[12px] p-6">
+                <div className="flex-1 border border-CarpeDiemBorder rounded-[12px] p-4 sm:p-6">
                     <div className="flex items-center justify-between mb-4">
                         <h3 className="text-black font-proxima font-semibold text-[14px] leading-[20px]">Uploaded files</h3>
                     </div>
 
                     <div className="flex flex-wrap gap-4">
                         {details.files.map((file: JobFile) => (
-                            <div key={file.id} className="w-[209px] h-[140px] border border-CarpeDiemStroke rounded-[8px] p-4 flex flex-col relative bg-white hover:border-CarpeDiemGreen transition-colors group cursor-pointer">
+                            <div key={file.id} className="w-full sm:w-[209px] h-[140px] border border-CarpeDiemStroke rounded-[8px] p-4 flex flex-col relative bg-white hover:border-CarpeDiemGreen transition-colors group cursor-pointer">
                                 <div className="mb-2">
                                     {renderFileIcon(file.type)}
                                 </div>
@@ -111,7 +111,7 @@ export function ShopDetails({ job }: ShopDetailsProps) {
                 <div className="mt-8 flex justify-end">
                     <Button
                         variant="primary"
-                        className="w-[189px]"
+                        className="w-full sm:w-[189px]"
                         onClick={() => setIsModalOpen(true)}
                     >
                         Schedule for cutting

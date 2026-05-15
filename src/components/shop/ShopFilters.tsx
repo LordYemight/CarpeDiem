@@ -28,63 +28,69 @@ export function ShopFilters({ filters, onChange }: ShopFiltersProps) {
     const filterShadow = { boxShadow: '0px 2px 3px 0px rgba(0, 0, 0, 0.05)' };
 
     return (
-        <div className="flex flex-wrap items-center gap-2 p-4">
+        <div className="flex flex-wrap items-center gap-3 p-4">
             {/* Search */}
-            <SearchInput
-                value={filters.search}
-                onChange={(val) => update({ search: val })}
-                placeholder="Search by job, Fab ID"
-                width="230px"
-                height="34px"
-                style={{ padding: '10px 12px', ...filterShadow }}
-            />
+            <div className="w-full sm:w-[230px]">
+                <SearchInput
+                    value={filters.search}
+                    onChange={(val) => update({ search: val })}
+                    placeholder="Search by job, Fab ID"
+                    width="100%"
+                    height="34px"
+                    style={{ padding: '10px 12px', ...filterShadow }}
+                />
+            </div>
 
             {/* Date range picker */}
-            <DateRangePicker
-                startDate={filters.dateRange.from}
-                endDate={filters.dateRange.to}
-                onDateRangeChange={(from, to) => update({ dateRange: { from, to } })}
-                style={filterShadow}
-            />
+            <div className="w-full sm:w-auto">
+                <DateRangePicker
+                    startDate={filters.dateRange.from}
+                    endDate={filters.dateRange.to}
+                    onDateRangeChange={(from, to) => update({ dateRange: { from, to } })}
+                    style={filterShadow}
+                />
+            </div>
 
-            {/* FAB type dropdown */}
-            <FilterDropdown
-                label="FAB type"
-                value={filters.fabType}
-                options={FAB_TYPES as unknown as string[]}
-                isOpen={fabOpen}
-                onToggle={() => { setFabOpen((o) => !o); setSalesOpen(false); }}
-                onSelect={(v) => { update({ fabType: v }); setFabOpen(false); }}
-                onClear={() => { update({ fabType: null }); setFabOpen(false); }}
-                width="114px"
-                style={filterShadow}
-            />
+            {/* Dropdowns Group */}
+            <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto">
+                {/* FAB type dropdown */}
+                <FilterDropdown
+                    label="FAB type"
+                    value={filters.fabType}
+                    options={FAB_TYPES as unknown as string[]}
+                    isOpen={fabOpen}
+                    onToggle={() => { setFabOpen((o) => !o); setSalesOpen(false); }}
+                    onSelect={(v) => { update({ fabType: v }); setFabOpen(false); }}
+                    onClear={() => { update({ fabType: null }); setFabOpen(false); }}
+                    width="114px"
+                    style={filterShadow}
+                />
 
-            {/* Spacer pushes sales + export to right */}
-            <div className="flex-1" />
+                {/* Salesperson dropdown */}
+                <FilterDropdown
+                    label="Select sales person"
+                    value={filters.salesPerson}
+                    options={SALES_PERSONS as unknown as string[]}
+                    isOpen={salesOpen}
+                    onToggle={() => { setSalesOpen((o) => !o); setFabOpen(false); }}
+                    onSelect={(v) => { update({ salesPerson: v }); setSalesOpen(false); }}
+                    onClear={() => { update({ salesPerson: null }); setSalesOpen(false); }}
+                    width="205px"
+                    placeholderColor="text-CarpeDiemGreyMuted"
+                    style={filterShadow}
+                />
+            </div>
 
-            {/* Salesperson dropdown */}
-            <FilterDropdown
-                label="Select sales person"
-                value={filters.salesPerson}
-                options={SALES_PERSONS as unknown as string[]}
-                isOpen={salesOpen}
-                onToggle={() => { setSalesOpen((o) => !o); setFabOpen(false); }}
-                onSelect={(v) => { update({ salesPerson: v }); setSalesOpen(false); }}
-                onClear={() => { update({ salesPerson: null }); setSalesOpen(false); }}
-                width="205px"
-                placeholderColor="text-CarpeDiemGreyMuted"
-                style={filterShadow}
-            />
-
-            {/* Export CSV */}
-            <button
-                onClick={handleExportCSV}
-                className="w-[86px] h-[34px] flex items-center justify-center rounded-[6px] border border-CarpeDiemBlueLight bg-white text-[12px] leading-[12px] font-semibold text-CarpeDiemGreyDark hover:bg-CarpeDiemOffWhite transition-colors"
-                style={filterShadow}
-            >
-                Export CSV
-            </button>
+            {/* Export CSV - Push to right on larger screens */}
+            <div className="sm:ml-auto">
+                <button
+                    onClick={handleExportCSV}
+                    className="w-[86px] h-[34px] flex items-center justify-center rounded-[6px] border border-CarpeDiemBlueLight bg-white text-[12px] leading-[12px] font-semibold text-CarpeDiemGreyDark hover:bg-CarpeDiemOffWhite transition-colors"
+                    style={filterShadow}
+                >
+                    Export CSV
+                </button>
+            </div>
         </div>
     );
 }

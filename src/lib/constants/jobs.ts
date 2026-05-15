@@ -1,0 +1,115 @@
+import { FabJob, FabJobDetails } from "@/types/shop";
+
+export const MOCK_JOBS: FabJob[] = [
+    {
+        id: "1",
+        fabId: "14425",
+        fabType: "Standard",
+        jobNo: 9999,
+        noOfPieces: 14,
+        totalSqFt: 171,
+        wuTimeMinutes: null,
+        confirmed: "9/10/2025",
+        revenue: 5005,
+        gp: null,
+        fpComplete: "9/10/2025",
+        isNew: true,
+    },
+    {
+        id: "2",
+        fabId: "33034",
+        fabType: "Standard",
+        jobNo: 9999,
+        noOfPieces: 16,
+        totalSqFt: 28.5,
+        wuTimeMinutes: null,
+        confirmed: null,
+        revenue: null,
+        gp: null,
+        fpComplete: "No",
+    },
+    {
+        id: "3",
+        fabId: "33034",
+        fabType: "Standard",
+        jobNo: 9999,
+        noOfPieces: 5,
+        totalSqFt: 28.5,
+        wuTimeMinutes: null,
+        confirmed: null,
+        revenue: null,
+        gp: null,
+        fpComplete: "No",
+    },
+    {
+        id: "4",
+        fabId: "14425",
+        fabType: "Standard",
+        jobNo: 9999,
+        noOfPieces: 14,
+        totalSqFt: 171,
+        wuTimeMinutes: null,
+        confirmed: "9/10/2025",
+        revenue: 5005,
+        gp: null,
+        fpComplete: "9/10/2025",
+        isNew: true,
+    },
+    {
+        id: "5",
+        fabId: "14425",
+        fabType: "Standard",
+        jobNo: 9999,
+        noOfPieces: 14,
+        totalSqFt: 171,
+        wuTimeMinutes: null,
+        confirmed: "9/10/2025",
+        revenue: 5005,
+        gp: null,
+        fpComplete: "9/10/2025",
+        isNew: true,
+    }
+];
+
+export const MOCK_JOB_DETAILS: Record<string, FabJobDetails> = {
+    "14425": {
+        account: "Test Martin",
+        area: "Double vanity",
+        stoneColor: "Test Martin",
+        stoneType: "CS",
+        stoneThickness: "Fresh concrete...",
+        edge: "CS",
+        wjLinFt: "12.5",
+        edgeLF: "12.4",
+        cncLinFt: "40",
+        miterLinFt: "12.5",
+        description: "Conference Table - Quartz",
+        draftingNotes: [
+            { id: 1, author: "Sarah Chen", time: "2 hours ago", text: "Lorem ipsum dolor sit amee magna aliqua. veniam, quis nostrud exercitation", avatar: "https://i.pravatar.cc/150?u=sarah" },
+            { id: 2, author: "Mike Johnson", time: "1 hour ago", text: "Lorem ipsum dolor sit amee magna aliqua. veniam, quis nostrud exercitation ul", avatar: "https://i.pravatar.cc/150?u=mike" },
+            { id: 3, author: "Mike Johnson", time: "1 hour ago", text: "Lorem ipsum dolor sit amee magna aliqua. veniam, quis nostrud exercitation ul", avatar: "https://i.pravatar.cc/150?u=mike2" }
+        ],
+        files: [
+            { id: 1, name: "Kitchen_Island.dwg", size: "2.4 MB", type: "dwg" },
+            { id: 2, name: "Reference.jpg", size: "2.4 MB", type: "jpg" },
+            { id: 3, name: "Kitchen_layout.pdf", size: "2.4 MB", type: "pdf" },
+            { id: 4, name: "Kitchen_Island.dwg", size: "2.4 MB", type: "dwg" },
+            { id: 5, name: "Reference.jpg", size: "2.4 MB", type: "jpg" }
+        ]
+    },
+    "default": {
+        account: "General Account",
+        area: "Kitchen Island",
+        stoneColor: "Calacatta",
+        stoneType: "Marble",
+        stoneThickness: "3cm",
+        edge: "Eased",
+        wjLinFt: "10.0",
+        edgeLF: "10.0",
+        cncLinFt: "30",
+        miterLinFt: "5.0",
+        description: "General Fabrication Job",
+        draftingNotes: [],
+        files: []
+    }
+};

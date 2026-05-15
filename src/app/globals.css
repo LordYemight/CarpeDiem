@@ -1,22 +1,62 @@
 @import "tailwindcss";
 
-@theme {
-  --color-CarpeDiemGrey: #7C8689;
-  --color-CarpeDiemGreen: #7A9705;
-  --color-CarpeDiemBlueLight: #E2E4ED;
-  --color-CarpeDiemWhiteSoft: #F9F9F9;
-  --color-CarpeDiemGreyDark: #4B545D;
-  --color-CarpeDiemSlate: #4B5675;
-  --color-CarpeDiemMutedBlue: #78829D;
-  --color-CarpeDiemBorder: #E5E7EB;
-  --color-CarpeDiemOffWhite: #FAFAFA;
-  
-  --font-proxima: var(--font-proxima), ui-sans-serif, system-ui, -apple-system, sans-serif;
+:root {
+  --carpe-diem-grey: #7c8689;
+  --carpe-diem-green: #7a9705;
+  --carpe-diem-blue-light: #e2e4ed;
+  --carpe-diem-white-soft: #f9f9f9;
+  --carpe-diem-grey-dark: #4b545d;
+  --carpe-diem-muted-blue: #78829d;
+  --carpe-diem-border: #e5e7eb;
+  --carpe-diem-off-white: #fafafa;
+  --carpe-diem-menu-text: #e6e9e7;
+  --carpe-diem-muted-blue: #78829d;
+  --carpe-diem-slate: #7c8689;
+  --carpe-diem-success: #0bc33f;
+  --carpe-diem-success-soft: #e1fce9;
+  --carpe-diem-success-dark: #0b5c22;
+  --carpe-diem-grey-100: #f0f1f6;
+  --carpe-diem-stroke: #dfdfdf;
+  --carpe-diem-grey-muted: #8c8c8c;
+  --carpe-diem-table-header: #f6ffe7;
+  --carpe-diem-row-selected: #f6f9ec;
+  --carpe-diem-black-deep: #111827;
+  --carpe-diem-green-hover: #5e7504;
+  --carpe-diem-label: #807f94;
+  --carpe-diem-card: #eeeeee;
+  --fab-olive: #5a6e1f;
+  --fab-moss: #667f01;
+
+  --background: var(--carpe-diem-off-white);
+  --foreground: var(--carpe-diem-grey-dark);
 }
 
-:root {
-  --background: var(--color-CarpeDiemOffWhite);
-  --foreground: var(--color-CarpeDiemGreyDark);
+@theme {
+  --color-CarpeDiemGrey: var(--carpe-diem-grey);
+  --color-CarpeDiemGreen: var(--carpe-diem-green);
+  --color-CarpeDiemBlueLight: var(--carpe-diem-blue-light);
+  --color-CarpeDiemWhiteSoft: var(--carpe-diem-white-soft);
+  --color-CarpeDiemGreyDark: var(--carpe-diem-grey-dark);
+  --color-CarpeDiemMutedBlue: var(--carpe-diem-muted-blue);
+  --color-CarpeDiemBorder: var(--carpe-diem-border);
+  --color-CarpeDiemOffWhite: var(--carpe-diem-off-white);
+  --color-CarpeDiemMenuText: var(--carpe-diem-menu-text);
+  --color-CarpeDiemSuccess: var(--carpe-diem-success);
+  --color-CarpeDiemSuccessSoft: var(--carpe-diem-success-soft);
+  --color-CarpeDiemSuccessDark: var(--carpe-diem-success-dark);
+  --color-CarpeDiemGrey100: var(--carpe-diem-grey-100);
+  --color-CarpeDiemStroke: var(--carpe-diem-stroke);
+  --color-CarpeDiemGreyMuted: var(--carpe-diem-grey-muted);
+  --color-CarpeDiemTableHeader: var(--carpe-diem-table-header);
+  --color-CarpeDiemRowSelected: var(--carpe-diem-row-selected);
+  --color-CarpeDiemBlackDeep: var(--carpe-diem-black-deep);
+  --color-CarpeDiemGreenHover: var(--carpe-diem-green-hover);
+  --color-CarpeDiemLabel: var(--carpe-diem-label);
+  --color-CarpeDiemCard: var(--carpe-diem-card);
+  --color-fab-olive: var(--fab-olive);
+  --color-fab-moss: var(--fab-moss);
+  
+  --font-proxima: var(--font-proxima), ui-sans-serif, system-ui, -apple-system, sans-serif;
 }
 
 body {
@@ -25,3 +65,37 @@ body {
   font-family: var(--font-proxima);
 }
 
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+
+.hide-calendar-icon::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}
+
+/* Hide number input spin buttons */
+.hide-spin-buttons::-webkit-outer-spin-button,
+.hide-spin-buttons::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.hide-spin-buttons[type=number] {
+  -moz-appearance: textfield;
+}

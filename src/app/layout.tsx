@@ -18,6 +18,8 @@ export const metadata: Metadata = {
   description: "Premium tools and curated experiences designed for those who value time.",
 };
 
+import { ToastContainer } from "@/components/ui/ToastContainer";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -25,7 +27,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`h-full antialiased ${proximaNova.variable}`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <ToastContainer />
+      </body>
     </html>
   );
 }
